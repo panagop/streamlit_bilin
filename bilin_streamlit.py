@@ -16,12 +16,20 @@ This app generates bilinear approximations of *force* - *deformation* curves
 
 st.sidebar.header('User Input Features')
 
-st.sidebar.markdown("""
-[Example CSV input file](https://raw.githubusercontent.com/dataprofessor/data/master/penguins_example.csv)
-""")
+# st.sidebar.markdown("""
+# [Example CSV input file](https://raw.githubusercontent.com/dataprofessor/data/master/penguins_example.csv)
+# """)
+
+uploaded_file = st.sidebar.file_uploader("Upload your input text delimited file")
+if uploaded_file is not None:
+    imput_file_delimited = uploaded_file
+else:
+    imput_file_delimited = r'examples/Example2'
+
+        
 
 # imput_file_delimited = r'P:\tmp\bilin_examples/Example3'
-imput_file_delimited = r'examples/Example2'
+# imput_file_delimited = r'examples/Example2'
 
 chart_title = st.sidebar.text_input('chart_title', value='Διγραμμικοποίηση καμπύλης αντίστασης')
 xtarget = st.sidebar.number_input('xtarget', value=0.35)
