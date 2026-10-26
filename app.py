@@ -2,7 +2,11 @@
 
 from __future__ import annotations
 
+import sys
 from pathlib import Path
+
+# Hosts that install only the dependencies, not the project itself (e.g. Streamlit Cloud).
+sys.path.insert(0, str(Path(__file__).parent / "src"))
 
 import matplotlib.pyplot as plt
 import pandas as pd
